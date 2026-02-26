@@ -1,10 +1,13 @@
-title: "Milo"
+title: "Rosedale Community Garden"
 
-about: "Bootstrap theme for jekyll"
+about: |
+  Rosedale Community Garden - A Denver Urban Gardens member for over 50 years!
+  <br />
+  <br />
+  Come visit us most Saturday Mornings for more information
 markdown: kramdown
 url: ""
 baseurl: ""
-disqus_short_name: disqus-demo-page
 
 plugins: 
   - jekyll-paginate
@@ -21,12 +24,18 @@ main_toc:
     url: "about"
   - title: Author
     url: "author"
-  - title: More
+  - title: Garden Teams
     children:
-      - title: Tags
-        url: "tags"
-      - title: Archive
-        url: "archive"
+      - title: Bees
+        url: "teams_bees"
+      - title: Bokashi
+        url: "teams_bokashi"
+      - title: "Community Flower Stand"
+        url: "teams_flower_stand"
+      - title: Garlic
+        url: "teams_garlic"
+      - title: Orchard
+        url: "teams_orchard"
 
 defaults:
   -
