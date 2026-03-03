@@ -5,78 +5,80 @@ title: Blog
 
 <main class="main pt-4" role="main">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="row">
-        <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-9">
 
-{% if paginator.page == 1 %}
-  {% assign pinned_posts = site.posts | where: "pinned", true %}
-  {% for post in pinned_posts %}
-          <article class="card mb-4">
-            <header class="card-header">
-              <div class="card-meta">
-                <time>Published on {{ post.date | date_to_string }}</time>
-                <span>
-                  in -
-                  {% assign categories = post.categories %}
-                  {% for category in categories %}
-                  <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-                  {% unless forloop.last %}&nbsp;{% endunless %}
-                  {% endfor %}
-                </span>
-              </div>
-              <a href="{{site.baseurl}}{{ post.url }}">
-                <h4 class="card-title">{{ post.title }}</h4>
-              </a>
-            </header>
+        {% if paginator.page == 1 %}
+        {% assign pinned_posts = site.posts | where: "pinned", true %}
+        {% for post in pinned_posts %}
+        <article class="card mb-4">
+          <header class="card-header">
+            <div class="card-meta">
+              <time>Published on {{ post.date | date_to_string }}</time>
+              <span>
+                in -
+                {% assign categories = post.categories %}
+                {% for category in categories %}
+                <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+                {% unless forloop.last %}&nbsp;{% endunless %}
+                {% endfor %}
+              </span>
+            </div>
             <a href="{{site.baseurl}}{{ post.url }}">
-              <img class="card-img" src="{{site.baseurl}}/img/{{ post.image }}" alt="" />
+              <h4 class="card-title">{{ post.title }}</h4>
+            </a>
+          </header>
+          <div class="postcard">
+            <a href="{{site.baseurl}}{{ post.url }}">
+              <img class="card-img" src="{{site.baseurl}}/img/{{ post.image }}" alt="{{ post.alt_text }}" />
             </a>
             <div class="card-body">
               <p class="card-text">{{ post.content | strip_html | truncatewords:40 }}</p>
             </div>
-          </article>
-  {% endfor %}
-{% endif %}
+          </div>
+        </article>
+        {% endfor %}
+        {% endif %}
 
-{% for post in paginator.posts %}
-  {% if post.pinned and paginator.page == 1 %}{% continue %}{% endif %}
-          <article class="card mb-4">
-            <header class="card-header">
-              <div class="card-meta">
-                <time>Published on {{ post.date | date_to_string }}</time>
-                <span>
-                  in -
-                  {% if post %}
-                    {% assign categories = post.categories %}
-                  {% else %}
-                    {% assign categories = page.categories %}
-                  {% endif %}
-                  {% for category in categories %}
-                  <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-                  {% unless forloop.last %}&nbsp;{% endunless %}
-                  {% endfor %}
-                </span>
+        {% for post in paginator.posts %}
+        {% if post.pinned and paginator.page == 1 %}{% continue %}{% endif %}
+        <article class="card mb-4">
+          <header class="card-header">
+            <div class="card-meta">
+              <time>Published on {{ post.date | date_to_string }}</time>
+              <span>
+                in -
+                {% if post %}
+                {% assign categories = post.categories %}
+                {% else %}
+                {% assign categories = page.categories %}
+                {% endif %}
+                {% for category in categories %}
+                <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+                {% unless forloop.last %}&nbsp;{% endunless %}
+                {% endfor %}
+              </span>
 
-              </div>
-              <a href="{{site.baseurl}}{{ post.url }}">
-                <h4 class="card-title">{{ post.title }}</h4>
-              </a>
-            </header>
-            <a href="{{site.baseurl}}{{ post.url }}">
-              <img class="card-img" src="{{site.baseurl}}/img/{{ post.image }}" alt="" />
-            </a>
-            <div class="card-body">
-              <p class="card-text">{{ post.content | strip_html | truncatewords:40 }}</p>
             </div>
-          </article>
-{% endfor %}
-        </div>
-		{% include sidebar.html %}
-        </div>
+            <a href="{{site.baseurl}}{{ post.url }}">
+              <h4 class="card-title">{{ post.title }}</h4>
+            </a>
+          </header>
+          <a href="{{site.baseurl}}{{ post.url }}">
+            <img class="card-img" src="{{site.baseurl}}/img/{{ post.image }}" alt="" />
+          </a>
+          <div class="card-body">
+            <p class="card-text">{{ post.content | strip_html | truncatewords:40 }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% include sidebar.html %}
+    </div>
 
-        </div>
-      	{% include pagination.html %}
-		</main>
+  </div>
+  {% include pagination.html %}
+</main>
 {% include footer.html %}

@@ -20,22 +20,50 @@ paginate: 5
 main_toc:
   - title: Home
     url: ""
-  - title: About
+  - title: About Us
     url: "about"
-  - title: Author
-    url: "author"
   - title: Garden Teams
     children:
       - title: Bees
-        url: "teams_bees"
+        url: "content/garden-teams/bees"
       - title: Bokashi
-        url: "teams_bokashi"
+        url: "garden-teams/bokashi"
       - title: "Community Flower Stand"
-        url: "teams_flower_stand"
+        url: "garden-teams/community-flower-station"
       - title: Garlic
-        url: "teams_garlic"
+        url: "garden-teams/garlic"
       - title: Orchard
-        url: "teams_orchard"
+        url: "garden-teams/orchard"
+  - title: Member Info
+    children:
+      - title: Event Planning
+        url: "member-info/event-planning"
+      - title: Finances
+        url: "member-info/finances"
+      - title: Garden Map
+        url: "member-info/garden-map"
+      - title: Member Roster
+        url: "member-info/member-roster"
+      - title: Project Teams
+        url: "member-info/project-teams"
+      - title: Reimbursement
+        url: "member-info/reimbursement"
+      - title: Straw
+        url: "member-info/straw"
+      - title: Tools
+        url: "member-info/tools"
+  - title: Pest Management
+    children:
+      - title: Early Tomato Blight
+        url: "pest-management/early-tomato-blight"
+      - title: Garlic Fire Spray
+        url: "pest-management/garlic-fire-spray"
+      - title: Japanese Beetles
+        url: "pest-management/japanese-beetles"
+      - title: Noxious vs Annoying Weeds
+        url: "pest-management/noxious-vs-annoying-weeds"
+      - title: Puncturevine (Goat Head)
+        url: "pest-management/puncturevine-goat-head"
 
 defaults:
   -
